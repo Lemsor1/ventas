@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Ventas.BL;
 
 namespace Ventas
 {
@@ -15,11 +16,15 @@ namespace Ventas
         public Form1()
         {
             InitializeComponent();
-        }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Lo que te propongas en la vida lo puedes lograr!");
+
+            var productosBL = new ProductosBL();
+            listadeProductosBindingSource.DataSource = productosBL.ListadeProductos;
+
+            var categoriasBL = new CategoriasBL();
+            listadeCategoriasBindingSource.DataSource = categoriasBL.ListadeCategorias;
+
+
         }
     }
 }
